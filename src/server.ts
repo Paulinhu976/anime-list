@@ -1,10 +1,13 @@
 import express from 'express';
 const app = express();
-const port = 3000;
+require('dotenv').config();
+const port = process.env.PORT;
 app.use(express.json());
 
 app.get('/ping', (req, res) => {
-  res.send({ message: 'pong' });
+  res.json({
+    message: 'pong',
+  });
 });
 
 app.listen(port, () => {
